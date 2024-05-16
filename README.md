@@ -1,4 +1,4 @@
-# AErr
+# aerr
 
 Shortcut for application errors.
 In general every application internally needs to handler errors.
@@ -137,3 +137,9 @@ CodeDataLoss
 // authentication credentials for the operation.
 CodeUnauthenticated 
 ```
+
+
+Credits:
+
+- Jacek Kucharczyk
+- Richard Hutta
