@@ -2,6 +2,7 @@ package aerr
 
 import (
 	"errors"
+	"net/http"
 
 	"gocloud.dev/gcerrors"
 	"google.golang.org/grpc/codes"
@@ -232,6 +233,42 @@ func (c ErrorCode) ToGRPCCode() codes.Code {
 		return codes.Unauthenticated
 	default:
 		return codes.Unknown
+	}
+}
+
+// ToHTTPCode maps ErrorCode to HTTP status codes.
+func (c ErrorCode) ToHTTPCode() int {
+	switch c {
+	case CodeOK:
+		return http.StatusOK // 200
+	case CodeInvalidArgument:
+		return http.StatusBadRequest // 400
+	case CodeDeadlineExceeded, CodeCanceled:
+		return http.StatusGatewayTimeout // 504
+	case CodeNotFound:
+		return http.StatusNotFound // 404
+	case CodeAlreadyExists:
+		return http.StatusConflict // 409
+	case CodeResourceExhausted:
+		return http.StatusTooManyRequests // 429
+	case CodeFailedPrecondition:
+		return http.StatusPreconditionFailed // 412
+	case CodeAborted:
+		return http.StatusConflict // 409
+	case CodeOutOfRange:
+		return http.StatusBadRequest // 400
+	case CodeUnimplemented:
+		return http.StatusNotImplemented // 501
+	case CodeUnavailable:
+		return http.StatusServiceUnavailable // 503
+	case CodeUnauthenticated:
+		return http.StatusUnauthorized // 401
+	case CodePermissionDenied:
+		return http.StatusForbidden // 403
+	case CodeUnknown, CodeInternal, CodeDataLoss:
+		return http.StatusInternalServerError // 500
+	default:
+		return http.StatusInternalServerError // 500
 	}
 }
 
