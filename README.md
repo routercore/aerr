@@ -1,7 +1,10 @@
 # aerr
 
-Shortcut for application errors.
+"aerr" is easy-to-type shortcut for application errors.
 In general every application internally needs to handler errors.
+ 
+This library provide nice wrapper following `error` interface and error 
+wrapping proposed by go team.
 
 Following were found by us to be good practice:
 
