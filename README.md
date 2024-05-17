@@ -142,7 +142,7 @@ CodeUnauthenticated
 ```
 
 
-Credits:
+## Credits:
 
 - Jacek Kucharczyk
 - Richard Hutta
