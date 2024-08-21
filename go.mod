@@ -1,4 +1,4 @@
-module github.com/devmodules/aerr
+module github.com/routercore/aerr
 
 go 1.22.3
 
