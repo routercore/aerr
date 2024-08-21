@@ -1,7 +1,7 @@
 # aerr
 
 "aerr" is easy-to-type shortcut for application errors.
-In general every application internally needs to handler errors.
+In general every application internally needs to handle errors.
  
 This library provide nice wrapper following `error` interface and error 
 wrapping proposed by go team.
@@ -11,8 +11,8 @@ Following were found by us to be good practice:
 - Do not try to use anything else except error interface.
 - Internally in your appliation everything (not considering generic libraries) should be wrapped into aerr.
 - Upper most layer such as HTTP endpoint handles error by translating error into http code and redering its content.
-- You can easily clasify most errors int into few categories such as one outlined below.
-- Try to be short descriptive, do not use capitalized sentences.
+- You can easily clasify most errors into into few categories such as ones outlined below.
+- Try to be short & descriptive, do not use capital letters.
 - Wrap your original errors.
 
 
@@ -142,7 +142,7 @@ CodeUnauthenticated
 ```
 
 
-Credits:
+## Credits:
 
 - Jacek Kucharczyk
 - Richard Hutta
